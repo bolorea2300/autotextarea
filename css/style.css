@@ -1,0 +1,14 @@
+#app {
+  height: 100%;
+  width: 98%;
+  margin: 0 auto;
+}
+
+.textarea {
+  width: 100%;
+}
+
+[v-cloak] {
+  display: none;
+}
+/*# sourceMappingURL=style.css.map */

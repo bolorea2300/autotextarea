@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>自動で高さが変わるテキストエリア</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <textarea class="textarea" v-model="textarea" :rows="rows"></textarea>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        let count;
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                textarea: "",
+            },
+            computed:
+            {
+                rows() {
+                    count = this.textarea.split(/\r\n|\r|\n/);
+
+                    //count.lengthにて「配列の長さ = 行数」を取得する。
+                    //今回は「最低でも5行」になるように設定している。
+                    if (count.length > 5) {
+                        return count.length;
+                    }
+                    else {
+                        return 5;
+                    }
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
